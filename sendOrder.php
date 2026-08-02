@@ -1,4 +1,8 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 $allowed = ['aaBB555', 'CCdd22'];
 if (!isset($_GET['key']) || !in_array($_GET['key'], $allowed, true)) {
     header('Location: unauthorized.php');
@@ -21,10 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once 'PHPMailer/Exception.php';
         require_once 'PHPMailer/PHPMailer.php';
         require_once 'PHPMailer/SMTP.php';
-
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\SMTP;
-        use PHPMailer\PHPMailer\Exception;
 
         $mail = new PHPMailer(true);
         try {
