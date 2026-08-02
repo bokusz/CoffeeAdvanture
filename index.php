@@ -42,7 +42,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
     <section class="hero" id="home">
         <div class="hero-text">
             <div class="badge">
-                Kézműves sütik & italok (Bóki)
+                Kézműves sütik & italok (Bóki, Bogi)
             </div>
             <h1>
                 Kávé.
