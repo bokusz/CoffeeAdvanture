@@ -1,0 +1,1890 @@
+/* ==========================
+   KÁVÉKALAND - MAIN STYLE
+   Modern bakery / cafe design
+========================== */
+
+
+/* ALAPOK */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #FFF7D6;
+
+    color: #1d2652;
+
+    overflow-x: hidden;
+
+    position: relative;
+
+}
+
+
+
+/* Háttérben lebegő organikus formák */
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 600px;
+
+    height: 600px;
+
+    background: #A7C1E1;
+
+    border-radius: 45% 55% 60% 40%;
+
+    top: -250px;
+
+    left: -200px;
+
+    z-index: -2;
+
+    animation: floatingBlob 10s infinite alternate;
+
+}
+
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 550px;
+
+    height: 550px;
+
+    background: #FFEDA8;
+
+    border-radius: 60% 40% 45% 55%;
+
+    bottom: -200px;
+
+    right: -150px;
+
+    z-index: -2;
+
+    animation: floatingBlob 12s infinite alternate-reverse;
+
+}
+
+
+
+@keyframes floatingBlob {
+
+
+0% {
+
+    transform: rotate(0deg) translateY(0);
+
+}
+
+
+
+100% {
+
+    transform: rotate(15deg) translateY(-30px);
+
+}
+
+
+}
+
+
+
+/* ==========================
+        NAVBAR
+========================== */
+
+
+header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+
+.navbar {
+
+
+    width: 88%;
+
+    margin: 25px auto;
+
+    padding: 18px 35px;
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+
+    background: rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(15px);
+
+
+    border-radius: 50px;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(29,38,82,0.15);
+
+
+}
+
+
+
+.logo {
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    color: #154061;
+
+}
+
+
+
+.navbar ul {
+
+    display: flex;
+
+    gap: 35px;
+
+    list-style: none;
+
+}
+
+
+
+.navbar a {
+
+    text-decoration: none;
+
+    color: #1d2652;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+
+.navbar a:hover {
+
+    color:#154061;
+
+    transform: translateY(-3px);
+
+}
+
+
+
+
+/* ==========================
+        HERO
+========================== */
+
+
+.hero {
+
+
+    min-height: 90vh;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+
+    padding: 70px 8%;
+
+
+    position: relative;
+
+
+}
+
+
+
+.hero-text {
+
+
+    max-width: 600px;
+
+
+}
+
+
+
+.badge {
+
+
+    display:inline-block;
+
+
+    /* background:#A7C1E1; */
+
+
+    padding:12px 25px;
+
+
+    border-radius:40px;
+
+
+    font-weight:700;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.hero h1 {
+
+
+    font-size:85px;
+
+
+    line-height:.95;
+
+
+    font-weight:900;
+
+
+    letter-spacing:-3px;
+
+
+}
+
+
+
+.hero h1 span {
+
+
+    color:#154061;
+
+
+}
+
+
+
+.hero p {
+
+
+    font-size:20px;
+
+
+    margin:30px 0;
+
+
+    max-width:500px;
+
+
+    color:#39436b;
+
+
+}
+
+
+
+.buttons {
+
+
+    display:flex;
+
+
+    gap:20px;
+
+
+}
+
+
+
+.main-btn,
+.second-btn {
+
+
+    padding:16px 35px;
+
+
+    border-radius:50px;
+
+
+    text-decoration:none;
+
+
+    font-weight:800;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.main-btn {
+
+
+    background:#154061;
+
+
+    color:white;
+
+
+}
+
+
+
+.second-btn {
+
+
+    background:white;
+
+
+    color:#154061;
+
+
+    border:2px solid #A7C1E1;
+
+
+}
+
+
+
+.main-btn:hover,
+.second-btn:hover {
+
+
+    transform:translateY(-5px) scale(1.03);
+
+
+}
+/* ==========================
+        HERO KÉP
+========================== */
+
+
+.hero-image {
+
+    position: relative;
+
+}
+
+
+
+.hero-image::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:#A7C1E1;
+
+    border-radius:50%;
+
+    top:20px;
+
+    left:20px;
+
+    z-index:-1;
+
+}
+
+
+
+.hero-image img {
+
+
+    width:430px;
+
+    height:430px;
+
+    object-fit:cover;
+
+
+    border-radius:
+
+    45% 55% 50% 50%;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(21,64,97,.25);
+
+
+    animation: imageFloat 5s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes imageFloat {
+
+
+    0%,100% {
+
+        transform:translateY(0);
+
+    }
+
+
+    50% {
+
+        transform:translateY(-20px);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================
+        ÁLTALÁNOS SZEKCIÓK
+========================== */
+
+
+section {
+
+    padding:90px 8%;
+
+}
+
+
+
+section h2 {
+
+    text-align:center;
+
+    font-size:50px;
+
+    font-weight:900;
+
+    color:#154061;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.section-text {
+
+    text-align:center;
+
+    max-width:650px;
+
+    margin:0 auto 50px;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+/* ==========================
+        TERMÉKEK
+========================== */
+
+
+.products {
+
+    position:relative;
+
+}
+
+
+
+.product-container {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:35px;
+
+
+}
+
+
+
+.product-card {
+
+
+    background:
+
+    rgba(255,255,255,.85);
+
+
+    backdrop-filter:blur(12px);
+
+
+    border-radius:45px;
+
+
+    padding:22px;
+
+
+    text-align:center;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 20px 40px rgba(29,38,82,.12);
+
+
+    transition:.4s;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.product-card::before {
+
+
+    content:"";
+
+
+    display:block;
+
+
+    height:8px;
+
+
+    width:70px;
+
+
+    margin:0 auto 15px;
+
+
+    background:#FFEDA8;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+.product-card:hover {
+
+
+    transform:
+
+    translateY(-15px)
+
+    rotate(1deg);
+
+
+    box-shadow:
+
+    0 30px 60px rgba(29,38,82,.2);
+
+
+}
+
+
+
+.product-card img {
+
+
+    width:100%;
+
+
+    height:230px;
+
+
+    object-fit:cover;
+
+
+    border-radius:35px;
+
+
+}
+
+
+
+.product-card h3 {
+
+
+    margin-top:20px;
+
+
+    font-size:25px;
+
+
+    color:#154061;
+
+
+}
+
+
+
+.product-card p {
+
+
+    margin-top:10px;
+
+
+    color:#39436b;
+
+
+}
+
+
+
+
+
+/* ==========================
+        CSAPAT
+========================== */
+
+
+.team {
+
+
+    position:relative;
+
+}
+
+
+
+.team::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:400px;
+
+
+    height:400px;
+
+
+    background:#FFEDA8;
+
+
+    border-radius:50%;
+
+
+    right:-150px;
+
+
+    top:50px;
+
+
+    z-index:-1;
+
+
+}
+
+
+
+.team-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:35px;
+
+
+}
+
+
+
+.team-card {
+
+
+    background:white;
+
+
+    border-radius:45px;
+
+
+    padding:30px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 20px 40px rgba(29,38,82,.12);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.team-card:hover {
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+
+.team-card img {
+
+
+    width:160px;
+
+
+    height:160px;
+
+
+    border-radius:50%;
+
+
+    object-fit:cover;
+
+
+    border:8px solid #A7C1E1;
+
+
+}
+
+
+
+.team-card h3 {
+
+
+    margin-top:20px;
+
+
+    color:#154061;
+
+
+}
+
+
+
+.team-card p {
+
+
+    margin-top:10px;
+
+
+    color:#39436b;
+
+
+}
+/* ==========================
+        RENDELÉS
+========================== */
+
+
+.order {
+
+
+    position:relative;
+
+
+}
+
+
+
+.order::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:450px;
+
+
+    height:450px;
+
+
+    background:#A7C1E1;
+
+
+    border-radius:50%;
+
+
+    left:-200px;
+
+
+    top:0;
+
+
+    z-index:-1;
+
+
+}
+
+
+
+
+.order-box {
+
+
+    max-width:800px;
+
+
+    margin:auto;
+
+
+    background:#154061;
+
+
+    color:white;
+
+
+    padding:50px;
+
+
+    border-radius:55px;
+
+
+    box-shadow:
+
+
+    0 30px 70px rgba(21,64,97,.3);
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+.order-box::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:250px;
+
+
+    height:250px;
+
+
+    background:#A7C1E1;
+
+
+    opacity:.25;
+
+
+    border-radius:50%;
+
+
+    right:-80px;
+
+
+    top:-80px;
+
+
+}
+
+
+
+
+.order-box h3 {
+
+
+    font-size:35px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.order-box p {
+
+
+    font-size:18px;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+.order-box strong {
+
+
+    color:#FFEDA8;
+
+
+}
+
+
+
+
+
+/* ==========================
+        KAPCSOLAT
+========================== */
+
+
+.contact {
+
+
+    background:#1d2652;
+
+
+    color:white;
+
+
+    border-radius:90px 90px 0 0;
+
+
+}
+
+
+
+.contact h2 {
+
+
+    color:#FFEDA8;
+
+
+}
+
+
+
+.contact-box {
+
+
+    max-width:700px;
+
+
+    margin:auto;
+
+
+    text-align:center;
+
+
+    font-size:20px;
+
+
+    line-height:2;
+
+
+}
+
+
+
+.contact-box a {
+
+
+    color:#A7C1E1;
+
+
+    text-decoration:none;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+/* ==========================
+        VÉLEMÉNYEK
+========================== */
+
+
+
+.reviews {
+
+
+    position:relative;
+
+
+}
+
+
+
+.review-container {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:30px;
+
+
+}
+
+
+
+.review-card {
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:45px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+
+    0 20px 40px rgba(29,38,82,.12);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.review-card:hover {
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+
+.stars {
+
+
+    font-size:30px;
+
+
+    color:#154061;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.review-card p {
+
+
+    color:#39436b;
+
+
+    line-height:1.7;
+
+
+}
+
+
+
+.review-card h3 {
+
+
+    margin-top:20px;
+
+
+    color:#154061;
+
+
+}
+
+
+
+
+
+/* ==========================
+        GALÉRIA
+========================== */
+
+
+.gallery {
+
+
+    background:#FFF7D6;
+
+
+}
+
+
+
+.gallery-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+.gallery-grid img {
+
+
+    width:100%;
+
+
+    height:260px;
+
+
+    object-fit:cover;
+
+
+    border-radius:45px;
+
+
+    transition:.4s;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(29,38,82,.15);
+
+
+}
+
+
+
+
+.gallery-grid img:hover {
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+
+
+/* ==========================
+        MODAL - TERMÉK LEÍRÁS
+========================== */
+
+
+.modal {
+
+
+    display:none;
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    background:rgba(29,38,82,.65);
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    padding:20px;
+
+
+    z-index:2000;
+
+
+}
+
+
+
+.modal-content {
+
+
+    background:white;
+
+
+    width:100%;
+
+
+    max-width:500px;
+
+
+    padding:35px;
+
+
+    border-radius:50px;
+
+
+    text-align:center;
+
+
+    position:relative;
+
+
+    animation:popup .35s ease;
+
+
+}
+
+
+
+
+@keyframes popup {
+
+
+from {
+
+
+    transform:scale(.8);
+
+
+    opacity:0;
+
+
+}
+
+
+
+to {
+
+
+    transform:scale(1);
+
+
+    opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+
+.modal-content img {
+
+
+    width:100%;
+
+
+    height:250px;
+
+
+    object-fit:cover;
+
+
+    border-radius:35px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.close {
+
+
+    position:absolute;
+
+
+    right:25px;
+
+
+    top:15px;
+
+
+    border:none;
+
+
+    background:none;
+
+
+    font-size:35px;
+
+
+    color:#154061;
+
+
+    cursor:pointer;
+
+
+}
+/* ==========================
+        EXTRA ANIMÁCIÓK
+========================== */
+
+
+.product-card,
+.team-card,
+.review-card,
+.gallery-grid img {
+
+    will-change: transform;
+
+}
+
+
+
+@keyframes appear {
+
+
+from {
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+
+to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+section {
+
+    animation:appear .8s ease;
+
+}
+
+
+
+
+
+/* ==========================
+        GOMB FINOMÍTÁS
+========================== */
+
+
+.main-btn {
+
+
+    box-shadow:
+
+    0 15px 30px rgba(21,64,97,.25);
+
+
+}
+
+
+
+.main-btn:hover {
+
+
+    box-shadow:
+
+    0 25px 40px rgba(21,64,97,.35);
+
+
+}
+
+
+
+
+
+/* ==========================
+        KIS DEKOR ELEMEK
+========================== */
+
+
+.hero::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:120px;
+
+
+    height:120px;
+
+
+    background:#FFEDA8;
+
+
+    border-radius:50%;
+
+
+    bottom:80px;
+
+
+    left:45%;
+
+
+    opacity:.7;
+
+
+    animation:smallFloat 6s infinite;
+
+
+}
+
+
+
+@keyframes smallFloat {
+
+
+0%,100% {
+
+
+    transform:translateY(0);
+
+
+}
+
+
+50% {
+
+
+    transform:translateY(-20px);
+
+
+}
+
+
+}
+
+
+
+
+
+
+/* ==========================
+        TABLET
+========================== */
+
+
+@media(max-width:1100px){
+
+
+
+.hero {
+
+
+    gap:50px;
+
+
+}
+
+
+
+.hero h1 {
+
+
+    font-size:65px;
+
+
+}
+
+
+
+.hero-image img {
+
+
+    width:350px;
+
+
+    height:350px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+/* ==========================
+        MOBIL
+========================== */
+
+
+@media(max-width:800px){
+
+
+
+.navbar {
+
+
+    width:94%;
+
+
+    padding:15px 20px;
+
+
+}
+
+
+
+.logo {
+
+
+    font-size:24px;
+
+
+}
+
+
+
+.navbar ul {
+
+
+    display:none;
+
+
+}
+
+
+
+
+.hero {
+
+
+    flex-direction:column;
+
+
+    text-align:center;
+
+
+    padding-top:50px;
+
+
+}
+
+
+
+.hero h1 {
+
+
+    font-size:48px;
+
+
+    letter-spacing:-1px;
+
+
+}
+
+
+
+.hero p {
+
+
+    font-size:17px;
+
+
+}
+
+
+
+.buttons {
+
+
+    justify-content:center;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+.hero-image img {
+
+
+    width:280px;
+
+
+    height:280px;
+
+
+}
+
+
+
+
+.hero-image::before {
+
+
+    width:280px;
+
+
+    height:280px;
+
+
+}
+
+
+
+
+
+section {
+
+
+    padding:60px 5%;
+
+
+}
+
+
+
+section h2 {
+
+
+    font-size:38px;
+
+
+}
+
+
+
+
+
+.product-container,
+
+
+.team-grid,
+
+
+.review-container {
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+
+
+.product-card {
+
+
+    border-radius:35px;
+
+
+}
+
+
+
+.order-box {
+
+
+    padding:30px;
+
+
+    border-radius:40px;
+
+
+}
+
+
+
+.order-box h3 {
+
+
+    font-size:28px;
+
+
+}
+
+
+
+
+
+.gallery-grid img {
+
+
+    height:220px;
+
+
+}
+
+
+
+
+.contact {
+
+
+    border-radius:50px 50px 0 0;
+
+
+}
+
+
+
+}
+
+
+
+
+
+/* ==========================
+        NAGYON KICSI MOBIL
+========================== */
+
+
+@media(max-width:400px){
+
+
+
+.hero h1 {
+
+
+    font-size:40px;
+
+
+}
+
+
+
+.main-btn,
+.second-btn {
+
+
+    width:100%;
+
+
+}
+
+
+
+}
+.hero-image img {
+
+    width:430px !important;
+    height:430px !important;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:50%;
+
+}
