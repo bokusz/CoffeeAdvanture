@@ -3,7 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$allowed = ['aaBB555', 'CCdd22'];
+$allowed=['bf4Gde67f','ndskFCgfj23', 'mjlzbtk3Den', 'df56hdfFV3', 'nzkj57nf2h'];
 if (!isset($_GET['key']) || !in_array($_GET['key'], $allowed, true)) {
     header('Location: unauthorized.php');
     exit;

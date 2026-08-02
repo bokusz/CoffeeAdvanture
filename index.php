@@ -1,5 +1,5 @@
 <?php
-$allowed=['aaBB555','CCdd22'];
+$allowed=['bf4Gde67f','ndskFCgfj23', 'mjlzbtk3Den', 'df56hdfFV3', 'nzkj57nf2h'];
 if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location: unauthorized.php');exit;}
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,13 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
 </head>
 <body>
 
-    <!-- Az oldal példa meghívása: https://coffeeadventure.rf.gd/index.php?key=aaBB555 -->
+    <!-- Az oldal példa meghívása:
+        https://coffeeadventure.rf.gd/index.php?key=bf4Gde67f
+        https://coffeeadventure.rf.gd/index.php?key=ndskFCgfj23
+        https://coffeeadventure.rf.gd/index.php?key=mjlzbtk3Den
+        https://coffeeadventure.rf.gd/index.php?key=df56hdfFV3
+        https://coffeeadventure.rf.gd/index.php?key=nzkj57nf2h
+    -->
 
     <!-- ==========================
         NAVIGÁCIÓ
