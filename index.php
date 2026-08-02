@@ -16,6 +16,8 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
 </head>
 <body>
 
+    <!-- Az oldal példa meghívása: https://coffeeadventure.rf.gd/index.php?key=aaBB555 -->
+
     <!-- ==========================
         NAVIGÁCIÓ
     ========================== -->
@@ -40,7 +42,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
     <section class="hero" id="home">
         <div class="hero-text">
             <div class="badge">
-                Kézműves sütik & italok
+                Kézműves sütik & italok (Bóki)
             </div>
             <h1>
                 Kávé.
