@@ -211,58 +211,8 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
             Hogyan rendelj?
         </h2>
         <div class="order-box">
-            <h3>
-                Rendelés e-mailben
-            </h3>
-            <p>
-                Írj nekünk e-mailt, amelyben megadod,
-                mit szeretnél rendelni.
-            </p>
-            <p>
-                <strong>E-mail cím: zoebaloght@gmail.com</strong>
-            </p>
-            A tárgy legyen:
-            <strong>Rendelés</strong>
-            </p>
-            <p>
-                Írd bele:
-                <br>
-                • milyen terméket szeretnél
-                <br>
-                • mennyiséget
-                <br>
-                • neved
-                <br>
-                • mikorra szeretnéd
-                <br>
-                • mi a lakcímed
-                <br>
-                • illetve ha van bármi fontos tudnivaló azt is itt írjátok meg nekünk
-            </p>
-            <p>
-                Az elkészült rendelést még aznap kézbesítjük.
-            </p>
-            <p>
-                Nyitvatartás:
-                <br>
-                Augusztus 4 - 7. 13:00-18:00
-            </p>
-            <p>
-                Előfordulhat, hogy a nagy érdeklődés miatt az alapanyagok a tervezettnél hamarabb
-                elfogynak. Ilyen
-                esetben a nyitvatartás változhat. Megértéseteket köszönjük!
-            </p>
-            <p>
-                <strong>Fizetés:</strong>
-            </p>
-            <p>
-                Kávézónk bizalomra épülő rendszerben működik. Nálunk nincs
-                kötelező ár: annyit fizethetsz, amennyit szerinted megérnek
-                a sütik és italok, illetve amennyivel szeretnéd támogatni a
-                kis kávézónkat. Minden hozzájárulás sokat jelent számunkra,
-                hiszen ebből tudunk új alapanyagokat beszerezni és tovább
-                fejleszteni a kávézót.
-            </p>
+            <p>A megrendelését a következő űrlapon tudja megtenni:</p>
+            <a class="order-cta-btn" href="sendOrder.php?key=<?= htmlspecialchars($_GET['key']) ?>">Rendelés feladása</a>
         </div>
     </section>
 
