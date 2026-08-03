@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
 $allowed = ['bf4Gde67f','ndskFCgfj23','mjlzbtk3Den','df56hdfFV3','nzkj57nf2h'];
@@ -78,8 +81,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$errors) {
         $orderId = ca_order_id();
-        $readyToSend = true;
-        // Az e-mail-küldést a következő lépés adja hozzá.
+        $body = ca_build_body($orderId, $qty, $menu, $when, $street, $houseNo, $email, $phone, $note);
+
+        require_once 'smtp_config.php';
+        require_once 'PHPMailer/Exception.php';
+        require_once 'PHPMailer/PHPMailer.php';
+        require_once 'PHPMailer/SMTP.php';
+
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = SMTP_USER;
+            $mail->Password   = SMTP_PASS;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+            $mail->CharSet    = 'UTF-8';
+
+            $mail->setFrom(SMTP_USER, 'KávéKaland');
+            $mail->addAddress('zoebaloght@gmail.com');
+            $mail->addBCC('gabor.boka.jr@gmail.com');
+            $mail->addBCC('boglarka.boka@gmail.com');
+            $mail->addBCC('biborka.boka@gmail.com');
+            $mail->addBCC('bokatibor.old@gmail.com');
+
+            // CC csak akkor, ha az opcionális e-mail kitöltött ÉS érvényes.
+            if ($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $mail->addCC($email);
+            }
+
+            $mail->Subject = 'Kávékaland - Megrendelés - ' . $orderId;
+            $mail->Body    = $body;
+
+            $mail->send();
+
+            $_SESSION['ca_order'] = ['id' => $orderId, 'body' => $body];
+            header('Location: successfulOrder.php?key=' . urlencode($key));
+            exit;
+        } catch (Exception $e) {
+            $errors[] = 'Hiba az e-mail küldésekor: ' . $mail->ErrorInfo;
+        }
     }
 }
 ?>
