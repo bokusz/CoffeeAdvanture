@@ -70,6 +70,9 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                     Rendelés
                 </a>
             </div>
+            <p>
+                Szállítási idők: 2026.08.04 - 08.07 13:00 - 18:00
+            </p>            
         </div>
         <div class="hero-image">
             <img src="images/lemonade.jpg" alt="Limonádé">

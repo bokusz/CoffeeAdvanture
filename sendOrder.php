@@ -373,7 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="order-block">
-                    <h4>Fizetés</h4>
+                    <h4>Támogatás</h4>
                     <p class="hint">Kávézónk bizalomra épülő rendszerben működik. Nálunk nincs
                         kötelező ár: annyit fizethetsz, amennyit szerinted megérnek
                         a sütik és italok, illetve amennyivel szeretnéd támogatni a
