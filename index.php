@@ -212,7 +212,9 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
         </h2>
         <div class="order-box">
             <p>A megrendelését a következő űrlapon tudja megtenni:</p>
-            <a class="order-cta-btn" href="sendOrder.php?key=<?= htmlspecialchars($_GET['key']) ?>">Rendelés feladása</a>
+            <div class="buttons">
+                <a class="second-btn" href="sendOrder.php?key=<?= htmlspecialchars($_GET['key']) ?>">Rendelés feladása</a>
+            </div>
         </div>
     </section>
 

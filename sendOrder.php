@@ -20,9 +20,11 @@ $streets = ca_streets();
 
 $errors = [];
 
-// A "Mikorra" minimum értéke: most + 30 perc, HTML datetime-local formátumban (Y-m-dTH:i).
+// A "Mikorra" minimum értéke: most + 30 perc.
 $minTs  = time() + 30 * 60;
-$minAttr = date('Y-m-d\TH:i', $minTs);
+
+// A "Mikorra" mező formátuma: yyyy.MM.dd HH:mm (magyar formátum).
+$whenFormat = 'Y.m.d H:i';
 
 // Alapérték: most + 30 perc, felkerekítve a következő kerek vagy fél órára.
 $defaultTs = $minTs;
@@ -34,7 +36,7 @@ if ($mins === 0 || $mins === 30) {
 } else {
     $roundedTs = mktime((int) date('H', $defaultTs) + 1, 0, 0, (int) date('n', $defaultTs), (int) date('j', $defaultTs), (int) date('Y', $defaultTs));
 }
-$defaultWhen = date('Y-m-d\TH:i', $roundedTs);
+$defaultWhen = date($whenFormat, $roundedTs);
 
 // Form értékek (POST visszatöltéshez).
 $qty = [];
@@ -67,11 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Legalább egy terméket ki kell választanod.';
     }
 
-    // Mikorra: kötelező és >= most + 30 perc.
-    $whenTs = strtotime($when);
-    if ($when === '' || $whenTs === false) {
-        $errors[] = 'A szállítási időpont megadása kötelező.';
-    } elseif ($whenTs < $minTs) {
+    // Mikorra: kötelező, yyyy.MM.dd HH:mm formátum, és >= most + 30 perc.
+    $whenDt = DateTime::createFromFormat('!' . $whenFormat, $when);
+    $whenValid = $whenDt !== false && $whenDt->format($whenFormat) === $when;
+    if ($when === '' || !$whenValid) {
+        $errors[] = 'A szállítási időpontot yyyy.MM.dd HH:mm formátumban add meg (pl. ' . $defaultWhen . ').';
+    } elseif ($whenDt->getTimestamp() < $minTs) {
         $errors[] = 'A szállítási időpont legalább 30 perccel a mostani időpont után legyen.';
     }
 
@@ -154,10 +157,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 640px;
         }
         .order-block {
-            background: rgba(255,255,255,.06);
+            background: #154061;
             border-radius: 20px;
             padding: 22px 26px;
             margin: 18px 0;
+            box-shadow: 0 30px 70px rgba(21,64,97,.3);
         }
         .order-block h4 {
             margin: 0 0 14px;
@@ -282,8 +286,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h4>Szállítási adatok</h4>
                     <div class="order-row">
                         <label for="when">Mikorra:</label>
-                        <input type="datetime-local" name="when" id="when"
-                               min="<?= htmlspecialchars($minAttr) ?>"
+                        <input type="text" name="when" id="when"
+                               placeholder="yyyy.MM.dd HH:mm"
+                               pattern="\d{4}\.\d{2}\.\d{2} \d{2}:\d{2}"
+                               title="Formátum: yyyy.MM.dd HH:mm (pl. <?= htmlspecialchars($defaultWhen) ?>)"
                                value="<?= htmlspecialchars($when) ?>" required>
                     </div>
                     <div class="order-row">
