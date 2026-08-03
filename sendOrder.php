@@ -210,18 +210,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 16px 35px;
             border-radius: 50px;
             border: none;
-            background: #FFEDA8;
+            background: linear-gradient(135deg, #D6E4F5 0%, #A7C1E1 100%);
             color: #154061;
             font-family: "Poppins", sans-serif;
             font-size: 16px;
             font-weight: 800;
             cursor: pointer;
             transition: .3s;
-            box-shadow: 0 10px 25px rgba(255,237,168,.4);
+            box-shadow: 0 10px 25px rgba(167,193,225,.5);
         }
         .send-btn:hover {
             transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 20px 35px rgba(255,237,168,.5);
+            box-shadow: 0 20px 35px rgba(167,193,225,.6);
         }
         .msg-error {
             margin: 0 0 18px;

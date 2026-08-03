@@ -43,6 +43,10 @@ unset($_SESSION['ca_order']);
             text-align: center;
         }
         .success-msg {
+            background: #154061;
+            border-radius: 20px;
+            padding: 22px 26px;
+            box-shadow: 0 30px 70px rgba(21,64,97,.3);
             color: #fff;
             font-size: 19px;
             font-weight: 600;
@@ -50,9 +54,10 @@ unset($_SESSION['ca_order']);
             margin-bottom: 28px;
         }
         .order-details {
-            background: rgba(255,255,255,.06);
+            background: #154061;
             border-radius: 20px;
             padding: 22px 26px;
+            box-shadow: 0 30px 70px rgba(21,64,97,.3);
             text-align: left;
             color: #fff;
             white-space: pre-wrap;
