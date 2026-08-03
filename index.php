@@ -184,7 +184,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                     kávézóban, ezért gyakran szoktuk együtt sütni, és én
                     segítek a sütik és italok felszolgálásában is. Nagyon örülök,
                     hogy részese lehetek ennek a kis kávézónak, és remélem, hogy
-                    minden vendégnek ízlei fognak a finomságaink
+                    minden vendégnek ízleni fognak a finomságaink.
                 </p>
             </div>
             <div class="team-card">

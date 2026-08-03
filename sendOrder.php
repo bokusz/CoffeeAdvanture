@@ -338,8 +338,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php if ($whenError !== ''): ?>
                         <p class="field-warning"><?= htmlspecialchars($whenError) ?></p>
                     <?php endif; ?>
-                    <p class="field-hint">Formátum: például <?= htmlspecialchars($defaultWhen) ?>
-                        <br>Szállítás csak 2026.08.04 - 08.07 közötti napokra és 13:00 - 18:00 közötti időpontokra kérhető.</p>
+                    <p class="field-hint">Formátum: <?= htmlspecialchars($defaultWhen) ?>
+                        <br><br>Szállítás csak 2026.08.04 - 08.07 közötti napokra és 13:00 - 18:00 közötti időpontokra kérhető.</p>
                     <div class="order-row">
                         <label for="street">Utca:</label>
                         <select name="street" id="street">
