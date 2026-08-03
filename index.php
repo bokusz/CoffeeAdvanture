@@ -51,11 +51,11 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                 Kézműves sütik & italok
             </div>
             <h1>
-                Kávé.
+                Kávé
                 <br>
-                Süti.
+                Süti
                 <br>
-                <span>Élmények.</span>
+                <span>Élmények</span>
             </h1>
             <p>
                 Frissen készített finomságok,
