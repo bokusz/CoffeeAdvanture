@@ -71,7 +71,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                 </a>
             </div>
             <p>
-                Szállítási idők: 2026.08.04 - 08.07 13:00 - 18:00
+                Szállítás csak 2026.08.04 - 08.07 közötti napokra és 13:00 - 18:00 közötti időpontokra kérhető.
             </p>            
         </div>
         <div class="hero-image">
