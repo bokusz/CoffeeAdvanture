@@ -116,10 +116,15 @@ function ca_success_message(): string {
 }
 
 // HTML e-mail törzs, amely a successfulOrder.php oldal tartalmát és stílusát
-// tükrözi (menü nélkül). A $body a ca_build_body() sima szöveges kimenete.
-function ca_build_html_body(string $body): string {
-    $msg     = htmlspecialchars(ca_success_message(), ENT_QUOTES, 'UTF-8');
-    $details = htmlspecialchars($body, ENT_QUOTES, 'UTF-8');
+// tükrözi (menü nélkül). A $body a ca_build_body() sima szöveges kimenete,
+// a $subject a levél tárgya (fejlécként), a $key a megrendelő hozzáférési
+// kulcsa (a záró gomb index.php-re mutató linkjéhez).
+function ca_build_html_body(string $body, string $subject, string $key): string {
+    $title    = htmlspecialchars($subject, ENT_QUOTES, 'UTF-8');
+    $msg      = htmlspecialchars(ca_success_message(), ENT_QUOTES, 'UTF-8');
+    $details  = htmlspecialchars($body, ENT_QUOTES, 'UTF-8');
+    $indexUrl = 'https://coffeeadventure.rf.gd/index.php?key=' . rawurlencode($key);
+    $indexUrl = htmlspecialchars($indexUrl, ENT_QUOTES, 'UTF-8');
 
     $block   = 'background:#154061;border-radius:20px;padding:22px 26px;'
              . 'box-shadow:0 30px 70px rgba(21,64,97,.3);color:#ffffff;';
@@ -129,12 +134,22 @@ function ca_build_html_body(string $body): string {
     $html .= '<body style="margin:0;padding:0;background:#FFF7D6;'
            . 'font-family:\'Poppins\',Arial,sans-serif;color:#1d2652;">';
     $html .= '<div style="max-width:640px;margin:0 auto;padding:40px 20px;">';
+    $html .= '<h1 style="margin:0 0 28px;text-align:center;color:#154061;'
+           . 'font-size:26px;font-weight:900;letter-spacing:-1px;">' . $title . '</h1>';
     $html .= '<p style="' . $block . 'font-size:19px;font-weight:600;line-height:1.5;'
            . 'margin:0 0 28px;">' . $msg . '</p>';
     $html .= '<div style="' . $block . 'text-align:left;white-space:pre-wrap;'
            . 'font-size:15px;line-height:1.5;">'
            . '<h4 style="margin:0 0 14px;color:#FFEDA8;font-size:18px;">Rendelés részletei</h4>'
            . $details . '</div>';
+    $html .= '<div style="text-align:center;margin:32px 0 0;">'
+           . '<a href="' . $indexUrl . '" '
+           . 'style="display:inline-block;padding:16px 35px;border-radius:50px;'
+           . 'background:#A7C1E1;'
+           . 'background:linear-gradient(135deg,#D6E4F5 0%,#A7C1E1 100%);color:#154061;'
+           . 'font-family:\'Poppins\',Arial,sans-serif;font-size:16px;font-weight:800;'
+           . 'text-decoration:none;box-shadow:0 10px 25px rgba(167,193,225,.5);">'
+           . 'KávéKaland</a></div>';
     $html .= '</div></body></html>';
 
     return $html;

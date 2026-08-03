@@ -124,9 +124,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->addCC($email);
             }
 
-            $mail->Subject = 'Kávékaland - Megrendelés - ' . $orderId;
+            $subject = 'KávéKaland - Megrendelés - ' . $orderId;
+            $mail->Subject = $subject;
             $mail->isHTML(true);
-            $mail->Body    = ca_build_html_body($body);
+            $mail->Body    = ca_build_html_body($body, $subject, $key);
             $mail->AltBody = $body;
 
             $mail->send();
