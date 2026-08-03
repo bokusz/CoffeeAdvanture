@@ -320,7 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php if ($whenError !== ''): ?>
                         <p class="field-warning"><?= htmlspecialchars($whenError) ?></p>
                     <?php endif; ?>
-                    <p class="field-hint">Formátum: yyyy.MM.dd HH:mm — például <?= htmlspecialchars($defaultWhen) ?></p>
+                    <p class="field-hint">Lehetséges szállítási idők: Augusztus 4 - 7. 13:00-18:00. Formátum: például <?= htmlspecialchars($defaultWhen) ?></p>
                     <div class="order-row">
                         <label for="street">Utca:</label>
                         <select name="street" id="street">
@@ -353,6 +353,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h4>Megjegyzés (opcionális)</h4>
                     <textarea name="note" rows="4"><?= htmlspecialchars($note) ?></textarea>
                 </div>
+
+                <div class="order-block">
+                    <h4>Fizetés</h4>
+                    <p class="hint">Kávézónk bizalomra épülő rendszerben működik. Nálunk nincs
+                        kötelező ár: annyit fizethetsz, amennyit szerinted megérnek
+                        a sütik és italok, illetve amennyivel szeretnéd támogatni a
+                        kis kávézónkat. Minden hozzájárulás sokat jelent számunkra,
+                        hiszen ebből tudunk új alapanyagokat beszerezni és tovább
+                        fejleszteni a kávézót.</p>
+                </div>                
 
                 <button type="submit" class="send-btn">Rendelés küldése</button>
             </form>
