@@ -320,7 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php if ($whenError !== ''): ?>
                         <p class="field-warning"><?= htmlspecialchars($whenError) ?></p>
                     <?php endif; ?>
-                    <p class="field-hint">Lehetséges szállítási idők: Augusztus 4 - 7. 13:00-18:00. Formátum: például <?= htmlspecialchars($defaultWhen) ?></p>
+                    <p class="field-hint">Formátum: például <?= htmlspecialchars($defaultWhen) ?><br>Lehetséges szállítási idők: 2026.08.04 - 2026.08.07. 13:00-18:00.</p>
                     <div class="order-row">
                         <label for="street">Utca:</label>
                         <select name="street" id="street">
