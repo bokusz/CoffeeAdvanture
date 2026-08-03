@@ -227,9 +227,6 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
         </h2>
         <div class="contact-box">
             <p>
-                📍 Malomvölgy utca 36.
-            </p>
-            <p>
                 📧 zoebaloght@gmail.com
             </p>
         </div>
