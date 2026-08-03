@@ -226,9 +226,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .msg-error {
             margin: 0 0 18px;
             padding: 14px 18px;
-            background: rgba(255,120,120,.15);
+            background: rgba(255,120,120,.55);
             border-radius: 14px;
-            color: #ffd0d0;
+            color: #392222;
             font-weight: 600;
         }
         .msg-error ul { margin: 8px 0 0; padding-left: 20px; }
