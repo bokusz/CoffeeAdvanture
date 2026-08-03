@@ -3,6 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 session_start();
+date_default_timezone_set('Europe/Budapest');
 
 $allowed = ['bf4Gde67f','ndskFCgfj23','mjlzbtk3Den','df56hdfFV3','nzkj57nf2h'];
 if (!isset($_GET['key']) || !in_array($_GET['key'], $allowed, true)) {
@@ -36,7 +37,12 @@ if ($mins === 0 || $mins === 30) {
 $defaultWhen = date('Y-m-d\TH:i', $roundedTs);
 
 // Form értékek (POST visszatöltéshez).
-$qty      = array_fill_keys(array_keys(array_merge($menu['Sütemények'], $menu['Italok'])), 0);
+$qty = [];
+foreach ($menu as $items) {
+    foreach ($items as $pkey => $meta) {
+        $qty[$pkey] = 0;
+    }
+}
 $when     = $defaultWhen;
 $street   = 'Malomvölgy utca';
 $houseNo  = '';
