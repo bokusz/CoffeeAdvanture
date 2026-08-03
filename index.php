@@ -211,7 +211,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
             Hogyan rendelj?
         </h2>
         <div class="order-box">
-            <p>A megrendelését a következő űrlapon tudja megtenni:</p>
+            <p>Használja a nyomógombot a rendelés összeállításhoz.</p>
             <div class="buttons">
                 <a class="second-btn" href="sendOrder.php?key=<?= htmlspecialchars($_GET['key']) ?>">Rendelés feladása</a>
             </div>
