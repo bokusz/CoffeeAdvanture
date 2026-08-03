@@ -167,7 +167,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                     Sziasztok! Bogi vagyok 14 éves, én álmodtam meg ezt a kis
                     kávézót. Imádok sütni, ezért én készítem a sütiket, emellett
                     én készítettem a plakátokat és ezt a weboldalt is. Nagyon örülök,
-                    hogy megvalósulhatott ez az ötletem, és remélem, hogy mindenki
+                    hogy megvalósulhatott ez az ötletem és remélem, hogy mindenki
                     jól érzi majd magát nálunk!
                 </p>
             </div>
@@ -200,7 +200,7 @@ if(!isset($_GET['key'])||!in_array($_GET['key'],$allowed,true)){header('Location
                     készítettem plakátokat és süti illusztrációkat is a kávézóhoz. Emellett
                     gyakran segítek Boginak a sütésben, és örömmel veszek részt a
                     sütik és italok árusításában is. Boldoggá tesz, hogy én is
-                    hozzájárulhatok ehhez a kis kávézóhoz
+                    hozzájárulhatok ehhez a kis kávézóhoz.
                 </p>
             </div>
         </div>
