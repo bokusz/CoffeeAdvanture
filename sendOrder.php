@@ -374,8 +374,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="order-block">
                     <h4>Támogatás</h4>
-                    <p class="hint">Kávézónk bizalomra épülő rendszerben működik. Nálunk nincs
-                        kötelező ár, annyit fizethetsz, amennyit szerinted megérnek
+                    <p class="hint">Kávézónk bizalomra épülő rendszerben működik. Nálunk 
+                        annyit fizethetsz, amennyit szerinted megérnek
                         a sütik és italok, illetve amennyivel szeretnéd támogatni a
                         kis kávézónkat. Minden hozzájárulás sokat jelent számunkra,
                         hiszen ebből tudunk új alapanyagokat beszerezni és tovább
