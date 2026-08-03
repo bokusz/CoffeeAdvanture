@@ -54,6 +54,7 @@ $note     = '';
 
 $readyToSend = false;
 $orderId = '';
+$whenError = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $qty     = ca_collect_quantities($_POST, $menu);
@@ -73,9 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $whenDt = DateTime::createFromFormat('!' . $whenFormat, $when);
     $whenValid = $whenDt !== false && $whenDt->format($whenFormat) === $when;
     if ($when === '' || !$whenValid) {
-        $errors[] = 'A szállítási időpontot yyyy.MM.dd HH:mm formátumban add meg (pl. ' . $defaultWhen . ').';
+        $whenError = 'Hibás időpont. Kérjük yyyy.MM.dd HH:mm formátumban add meg (pl. ' . $defaultWhen . ').';
     } elseif ($whenDt->getTimestamp() < $minTs) {
-        $errors[] = 'A szállítási időpont legalább 30 perccel a mostani időpont után legyen.';
+        $whenError = 'A szállítási időpont legalább 30 perccel a mostani időpont után legyen (pl. ' . $defaultWhen . ').';
+    }
+    if ($whenError !== '') {
+        $errors[] = $whenError;
     }
 
     // Utca: érvényes érték a listából.
@@ -121,7 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $mail->Subject = 'Kávékaland - Megrendelés - ' . $orderId;
-            $mail->Body    = $body;
+            $mail->isHTML(true);
+            $mail->Body    = ca_build_html_body($body);
+            $mail->AltBody = $body;
 
             $mail->send();
 
@@ -232,6 +238,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-weight: 600;
         }
         .msg-error ul { margin: 8px 0 0; padding-left: 20px; }
+        .field-hint {
+            margin: 4px 0 0;
+            color: #FFEDA8;
+            font-size: 13px;
+        }
+        .field-warning {
+            margin: 8px 0 0;
+            padding: 10px 14px;
+            background: rgba(255,120,120,.55);
+            border-radius: 12px;
+            color: #392222;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .order-row input.input-error {
+            border: 2px solid #e05555;
+        }
     </style>
 </head>
 <body>
@@ -290,8 +313,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                placeholder="yyyy.MM.dd HH:mm"
                                pattern="\d{4}\.\d{2}\.\d{2} \d{2}:\d{2}"
                                title="Formátum: yyyy.MM.dd HH:mm (pl. <?= htmlspecialchars($defaultWhen) ?>)"
-                               value="<?= htmlspecialchars($when) ?>" required>
+                               value="<?= htmlspecialchars($when) ?>"
+                               class="<?= $whenError !== '' ? 'input-error' : '' ?>" required>
                     </div>
+                    <?php if ($whenError !== ''): ?>
+                        <p class="field-warning"><?= htmlspecialchars($whenError) ?></p>
+                    <?php endif; ?>
+                    <p class="field-hint">Formátum: yyyy.MM.dd HH:mm — például <?= htmlspecialchars($defaultWhen) ?></p>
                     <div class="order-row">
                         <label for="street">Utca:</label>
                         <select name="street" id="street">

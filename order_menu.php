@@ -109,3 +109,33 @@ function ca_build_body(string $orderId, array $qty, array $menu, string $when, s
 
     return implode("\n", $lines);
 }
+
+// A visszaigazoló szöveg — ugyanaz, mint a successfulOrder.php oldalon.
+function ca_success_message(): string {
+    return 'Rendelésedet köszönjük! Feldolgozását megkezdtük. Ha kérdésünk felmerül, keressük, egyéb esteben a megadott időre szállítunk. Bármilyen kérédése felmerül a zoebaloght@gmail.com e-mail címen elér minket.';
+}
+
+// HTML e-mail törzs, amely a successfulOrder.php oldal tartalmát és stílusát
+// tükrözi (menü nélkül). A $body a ca_build_body() sima szöveges kimenete.
+function ca_build_html_body(string $body): string {
+    $msg     = htmlspecialchars(ca_success_message(), ENT_QUOTES, 'UTF-8');
+    $details = htmlspecialchars($body, ENT_QUOTES, 'UTF-8');
+
+    $block   = 'background:#154061;border-radius:20px;padding:22px 26px;'
+             . 'box-shadow:0 30px 70px rgba(21,64,97,.3);color:#ffffff;';
+
+    $html  = '<!DOCTYPE html><html lang="hu"><head><meta charset="UTF-8">'
+           . '<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>';
+    $html .= '<body style="margin:0;padding:0;background:#FFF7D6;'
+           . 'font-family:\'Poppins\',Arial,sans-serif;color:#1d2652;">';
+    $html .= '<div style="max-width:640px;margin:0 auto;padding:40px 20px;">';
+    $html .= '<p style="' . $block . 'font-size:19px;font-weight:600;line-height:1.5;'
+           . 'margin:0 0 28px;">' . $msg . '</p>';
+    $html .= '<div style="' . $block . 'text-align:left;white-space:pre-wrap;'
+           . 'font-size:15px;line-height:1.5;">'
+           . '<h4 style="margin:0 0 14px;color:#FFEDA8;font-size:18px;">Rendelés részletei</h4>'
+           . $details . '</div>';
+    $html .= '</div></body></html>';
+
+    return $html;
+}
