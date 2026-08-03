@@ -77,6 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $whenError = 'Hibás időpont. Kérjük yyyy.MM.dd HH:mm formátumban add meg (pl. ' . $defaultWhen . ').';
     } elseif ($whenDt->getTimestamp() < $minTs) {
         $whenError = 'A szállítási időpont legalább 30 perccel a mostani időpont után legyen (pl. ' . $defaultWhen . ').';
+    } else {
+        $whenDate = (int) $whenDt->format('Ymd');
+        $whenHi   = (int) $whenDt->format('Hi');
+        if ($whenDate < 20260804 || $whenDate > 20260807) {
+            $whenError = 'A rendelést csak 2026.08.04 és 2026.08.07 közötti napokra lehet feladni.';
+        } elseif ($whenHi < 1300 || $whenHi > 1800) {
+            $whenError = 'A szállítási időpont csak 13:00 és 18:00 között lehet.';
+        }
     }
     if ($whenError !== '') {
         $errors[] = $whenError;
