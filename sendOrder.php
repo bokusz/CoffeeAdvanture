@@ -264,6 +264,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .order-row input.input-error {
             border: 2px solid #e05555;
         }
+        @media (max-width: 520px) {
+            .order-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .order-row select,
+            .order-row input {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
